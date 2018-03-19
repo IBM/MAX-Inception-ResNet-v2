@@ -38,7 +38,7 @@ The model is based on the [Keras built-in model for Inception-ResNet-v2](https:/
 
 ## 1. Build the Model
 
-Clone the `MAX-InceptionResNetV2` repository locally. In a terminal, run the following command:
+Clone this repository locally. In a terminal, run the following command:
 
 ```
 $ git clone https://github.com/IBM/MAX-Inception-ResNet-v2.git
@@ -47,7 +47,7 @@ $ git clone https://github.com/IBM/MAX-Inception-ResNet-v2.git
 Change directory into the repository base folder:
 
 ```
-$ cd MAX-InceptionResNetV2
+$ cd MAX-Inception-ResNet-v2
 ```
 
 To build the docker image locally, run: 
