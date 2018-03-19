@@ -41,7 +41,7 @@ The model is based on the [Keras built-in model for Inception-ResNet-v2](https:/
 Clone the `MAX-InceptionResNetV2` repository locally. In a terminal, run the following command:
 
 ```
-$ git clone https://github.ibm.com/IBM/MAX-InceptionResNetV2
+$ git clone https://github.com/IBM/MAX-Inception-ResNet-v2.git
 ```
 
 Change directory into the repository base folder:
