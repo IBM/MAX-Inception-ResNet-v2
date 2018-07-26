@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: max-inception-resnet-v2
+spec:
+  selector:
+    app: max-inception-resnet-v2
+  ports:
+  - port: 5000
+  type: NodePort
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: max-inception-resnet-v2
+  labels:
+    app: max-inception-resnet-v2
+spec:
+  selector:
+    matchLabels:
+      app: max-inception-resnet-v2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: max-inception-resnet-v2
+    spec:
+      containers:
+      - name: max-inception-resnet-v2
+        image: codait/max-inception-resnet-v2:latest
+        ports:
+        - containerPort: 5000
