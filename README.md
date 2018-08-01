@@ -1,4 +1,4 @@
-# IBM Code Model Asset Exchange: Inception-ResNet-v2 on ImageNet
+# IBM Code Model Asset Exchange: Inception-ResNet-v2 Image Classifier
 
 This repository contains code to instantiate and deploy an image classification model. This model recognizes the 1000 different classes of objects in the [ImageNet 2012 Large Scale Visual Recognition Challenge](http://www.image-net.org/challenges/LSVRC/2012/). The model consists of a deep convolutional net using the Inception-ResNet-v2 architecture that was trained on the ImageNet-2012 data set. The input to the model is a 299x299 image, and the output is a list of estimated class probilities.
 
@@ -53,7 +53,7 @@ $ cd MAX-Inception-ResNet-v2
 To build the docker image locally, run: 
 
 ```
-$ docker build -t max-keras-inceptionresnetv2 .
+$ docker build -t max-inception-resnet-v2 .
 ```
 
 All required model assets will be downloaded during the build process. _Note_ that currently this docker image is CPU only (we will add support for GPU images later).
@@ -64,7 +64,7 @@ All required model assets will be downloaded during the build process. _Note_ th
 To run the docker image, which automatically starts the model serving API, run:
 
 ```
-$ docker run -it -p 5000:5000 max-keras-inceptionresnetv2
+$ docker run -it -p 5000:5000 max-inception-resnet-v2
 ```
 
 ## 3. Use the Model
@@ -119,3 +119,7 @@ You should see a JSON response like that below:
 ## 4. Development
 
 To run the Flask API app in debug mode, edit `config.py` to set `DEBUG = True` under the application settings. You will then need to rebuild the docker image (see [step 1](#1-build-the-model)).
+
+## 5. Cleanup
+
+To stop the Docker container, type `CTRL` + `C` in your terminal.
