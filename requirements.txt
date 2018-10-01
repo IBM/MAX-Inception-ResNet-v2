@@ -1,0 +1,5 @@
+numpy==1.14.1
+tensorflow==1.5.0
+Pillow
+h5py
+keras==2.1.4

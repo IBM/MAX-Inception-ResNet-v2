@@ -1,6 +1,5 @@
 from flask_restplus import Namespace, Resource, fields
 from werkzeug.datastructures import FileStorage
-
 from config import MODEL_META_DATA
 from core.backend import ModelWrapper, read_image
 
@@ -13,29 +12,31 @@ model_meta = api.model('ModelMetadata', {
     'license': fields.String(required=False, description='Model license')
 })
 
+
 @api.route('/metadata')
 class Model(Resource):
     @api.doc('get_metadata')
     @api.marshal_with(model_meta)
     def get(self):
-        '''Return the metadata associated with the model'''
+        """Return the metadata associated with the model"""
         return MODEL_META_DATA
 
 
 label_prediction = api.model('LabelPrediction', {
-    'label_id': fields.String(required=False, description='Label identifier'),
+    'label_id': fields.String(required=False, description='Class label identifier'),
     'label': fields.String(required=True, description='Class label'),
-    'probability': fields.Float(required=True)
+    'probability': fields.Float(required=True, description='Predicted probability for the class label')
 })
 
 predict_response = api.model('ModelPredictResponse', {
     'status': fields.String(required=True, description='Response status message'),
-    'predictions': fields.List(fields.Nested(label_prediction), description='Predicted labels and probabilities')
+    'predictions': fields.List(fields.Nested(label_prediction), description='Predicted class labels and probabilities')
 })
 
 # set up parser for image input data
 image_parser = api.parser()
-image_parser.add_argument('image', type=FileStorage, location='files', required=True)
+image_parser.add_argument('image', type=FileStorage, location='files', required=True, help="An image file (RGB/HWC)")
+
 
 @api.route('/predict')
 class Predict(Resource):
@@ -46,7 +47,7 @@ class Predict(Resource):
     @api.expect(image_parser)
     @api.marshal_with(predict_response)
     def post(self):
-        '''Make a prediction given input data'''
+        """Make a prediction given input data"""
         result = {'status': 'error'}
 
         args = image_parser.parse_args()
