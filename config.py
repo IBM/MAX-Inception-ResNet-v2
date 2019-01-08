@@ -11,4 +11,3 @@ DEFAULT_MODEL_PATH = 'assets/{}.h5'.format(MODEL_NAME)
 
 MODEL_INPUT_IMG_SIZE = (299, 299)
 MODEL_LICENSE = "Apache v2"
-
