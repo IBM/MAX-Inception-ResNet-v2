@@ -1,17 +1,19 @@
 language: python
 python:
-- 3.6
+  - 3.6
 
 services:
-- docker
+  - docker
 
 install:
-- docker build -t max-inception-resnet-v2 .
-- docker run -it -d -p 5000:5000 max-inception-resnet-v2
-- sleep 45
+  - docker build -t max-inception-resnet-v2 .
+  - docker run -it -d -p 5000:5000 max-inception-resnet-v2
+  - flake8
+  - sleep 45
 
 before_script:
-- pip install pytest requests
+  - flake8 . --max-line-length=127
+  - pip install pytest requests
 
 script:
-- pytest tests/test.py
+  - pytest tests/test.py
