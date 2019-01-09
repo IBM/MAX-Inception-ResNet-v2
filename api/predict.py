@@ -1,4 +1,4 @@
-from core.model import ModelWrapper, read_image
+from core.model import ModelWrapper, _read_image
 from flask_restplus import fields
 from werkzeug.datastructures import FileStorage
 from maxfw.core import MAX_API, PredictAPI
@@ -34,8 +34,8 @@ class ModelPredictAPI(PredictAPI):
 
         args = input_parser.parse_args()
         input_data = args['image'].read()
-        image = read_image(input_data)
-        preds = self.model_wrapper.predict(image)
+        image = _read_image(input_data)
+        preds = self.model_wrapper._predict(image)
 
         # Modify this code if the schema is changed
         label_preds = [{'label_id': p[0], 'label': p[1], 'probability': p[2]} for p in [x for x in preds]]

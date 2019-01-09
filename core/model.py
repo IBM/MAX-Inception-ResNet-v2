@@ -11,12 +11,12 @@ from config import MODEL_INPUT_IMG_SIZE, DEFAULT_MODEL_PATH
 logger = logging.getLogger()
 
 
-def read_image(image_data):
+def _read_image(image_data):
     image = Image.open(io.BytesIO(image_data))
     return image
 
 
-def preprocess_image(image, target, mode='tf'):
+def _pre_process(image, target, mode='tf'):
     image = image.resize(target)
     image = img_to_array(image)
     image = np.expand_dims(image, axis=0)
@@ -24,7 +24,7 @@ def preprocess_image(image, target, mode='tf'):
     return image
 
 
-def post_process_result(preds):
+def _post_process(preds):
     return imagenet_utils.decode_predictions(preds)[0]
 
 
@@ -47,7 +47,7 @@ class ModelWrapper(object):
         self.model._make_predict_function()
         logger.info('Loaded model: {}'.format(self.model.name))
 
-    def predict(self, x):
-        x = preprocess_image(x, target=MODEL_INPUT_IMG_SIZE)
+    def _predict(self, x):
+        x = _pre_process(x, target=MODEL_INPUT_IMG_SIZE)
         preds = self.model.predict(x)
-        return post_process_result(preds)
+        return _post_process(preds)
