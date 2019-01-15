@@ -1,4 +1,4 @@
-from core.model import ModelWrapper, _read_image
+from core.model import ModelWrapper
 from flask_restplus import fields
 from werkzeug.datastructures import FileStorage
 from maxfw.core import MAX_API, PredictAPI
@@ -34,7 +34,7 @@ class ModelPredictAPI(PredictAPI):
 
         args = input_parser.parse_args()
         input_data = args['image'].read()
-        image = _read_image(input_data)
+        image = self.model_wrapper._read_image(input_data)
         preds = self.model_wrapper._predict(image)
 
         # Modify this code if the schema is changed
