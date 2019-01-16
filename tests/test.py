@@ -12,7 +12,7 @@ def test_swagger():
 
     json = r.json()
     assert 'swagger' in json
-    assert json.get('info') and json.get('info').get('title') == 'Model Asset Exchange Server'
+    assert json.get('info') and json.get('info').get('title') == 'Model Asset Exchange Microservice'
 
 
 def test_metadata():
@@ -26,7 +26,7 @@ def test_metadata():
     assert metadata['id'] == 'inception_resnet_v2-keras-imagenet'
     assert metadata['name'] == 'inception_resnet_v2 Keras Model'
     assert metadata['description'] == 'inception_resnet_v2 Keras model trained on ImageNet'
-    assert metadata['license'] == 'Apache2'
+    assert metadata['license'] == 'Apache v2'
 
 
 def test_predict():
