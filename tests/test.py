@@ -3,6 +3,7 @@ import requests
 from PIL import Image
 import tempfile
 
+
 def test_swagger():
 
     model_endpoint = 'http://localhost:5000/swagger.json'
@@ -31,7 +32,7 @@ def test_metadata():
 
 
 def _check_predict(r):
-    
+
     assert r.status_code == 200
     response = r.json()
     assert response['status'] == 'ok'
