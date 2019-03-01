@@ -28,7 +28,8 @@ class ModelWrapper(MAXModelWrapper):
 
     def _read_image(self, image_data):
         try:
-            image = Image.open(io.BytesIO(image_data))  #  .convert('RGB')
+            image = Image.open(io.BytesIO(image_data))
+            #.convert('RGB')
             return image
         except IOError as e:
             logger.error(str(e))
