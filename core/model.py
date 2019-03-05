@@ -6,6 +6,7 @@ from keras.applications import imagenet_utils
 import io
 import numpy as np
 import logging
+from flask import abort
 from config import DEFAULT_MODEL_PATH, MODEL_INPUT_IMG_SIZE, MODEL_META_DATA as model_meta
 from maxfw.model import MAXModelWrapper
 
@@ -26,8 +27,12 @@ class ModelWrapper(MAXModelWrapper):
         logger.info('Loaded model: {}'.format(self.model.name))
 
     def _read_image(self, image_data):
-        image = Image.open(io.BytesIO(image_data))
-        return image
+        try:
+            image = Image.open(io.BytesIO(image_data)).convert('RGB')
+            return image
+        except IOError as e:
+            logger.error(str(e))
+            abort(400, "The provided input is not a valid image (PNG or JPG required).")
 
     def _pre_process(self, image, target, mode='tf'):
         image = image.resize(target)
