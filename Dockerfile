@@ -1,4 +1,4 @@
-FROM codait/max-base:v1.0.0
+FROM codait/max-base:v1.1.1
 
 ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/keras
 ARG model_file=inception_resnet_v2.h5
@@ -12,7 +12,8 @@ RUN pip install -r requirements.txt
 
 COPY . /workspace
 
-RUN md5sum -c md5sums.txt # check file integrity
+# check file integrity
+RUN md5sum -c md5sums.txt
 
 EXPOSE 5000
 
