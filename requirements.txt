@@ -1,5 +1,5 @@
 numpy==1.14.1
 tensorflow==1.5.0
-Pillow
-h5py
+Pillow==5.4.1
+h5py==2.9.0
 keras==2.1.4

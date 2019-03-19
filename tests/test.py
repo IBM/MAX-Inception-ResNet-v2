@@ -14,7 +14,10 @@ def test_swagger():
 
     json = r.json()
     assert 'swagger' in json
-    assert json.get('info') and json.get('info').get('title') == 'Model Asset Exchange Microservice'
+    assert json.get('info') and json.get('info').get('title') == 'MAX Inception ResNet v2'
+    assert json.get('info') and json.get('info').get('version') == '1.1.0'
+    assert json.get('info') and json.get('info').get('description') == 'Identify objects in images using a ' \
+                                                                       'third-generation deep residual network.'
 
 
 def test_metadata():

@@ -6,9 +6,9 @@ RESTPLUS_MASK_SWAGGER = False
 SWAGGER_UI_DOC_EXPANSION = 'none'
 
 # API Metadata
-API_TITLE = 'Model Asset Exchange Server'
-API_DESC = 'An API for serving models'
-API_VERSION = '0.1'
+API_TITLE = 'MAX Inception ResNet v2'
+API_DESC = 'Identify objects in images using a third-generation deep residual network.'
+API_VERSION = '1.1.0'
 
 # Model settings
 keras_builtin_models = {
