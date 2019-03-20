@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/IBM/MAX-Inception-ResNet-v2.svg?branch=master)](https://travis-ci.org/IBM/MAX-Inception-ResNet-v2) [![Website Status](https://img.shields.io/website/http/max-inception-resnet-v2.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-inception-resnet-v2.max.us-south.containers.appdomain.cloud/)
+
 # IBM Code Model Asset Exchange: Inception-ResNet-v2 Image Classifier
 
 This repository contains code to instantiate and deploy an image classification model. This model recognizes the 1000 different classes of objects in the [ImageNet 2012 Large Scale Visual Recognition Challenge](http://www.image-net.org/challenges/LSVRC/2012/). The model consists of a deep convolutional net using the Inception-ResNet-v2 architecture that was trained on the ImageNet-2012 data set. The input to the model is a 299x299 image, and the output is a list of estimated class probabilities.
