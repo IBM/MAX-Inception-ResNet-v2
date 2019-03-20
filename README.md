@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/IBM/MAX-Inception-ResNet-v2.svg?branch=master)](https://travis-ci.com/IBM/MAX-Inception-ResNet-v2) [![Website Status](https://img.shields.io/website/http/max-inception-resnet-v2.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-inception-resnet-v2.max.us-south.containers.appdomain.cloud/)
+[![Build Status](https://travis-ci.org/IBM/MAX-Inception-ResNet-v2.svg?branch=master)](https://travis-ci.org/IBM/MAX-Inception-ResNet-v2) [![Website Status](https://img.shields.io/website/http/max-inception-resnet-v2.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-inception-resnet-v2.max.us-south.containers.appdomain.cloud/)
 
 # IBM Code Model Asset Exchange: Inception-ResNet-v2 Image Classifier
 
