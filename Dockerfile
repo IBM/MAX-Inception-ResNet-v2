@@ -1,6 +1,6 @@
 FROM codait/max-base:v1.1.1
 
-ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/keras
+ARG model_bucket=http://max-assets.s3.us.cloud-object-storage.appdomain.cloud/keras
 ARG model_file=inception_resnet_v2.h5
 
 WORKDIR /workspace
