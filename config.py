@@ -6,7 +6,7 @@ RESTPLUS_MASK_SWAGGER = False
 SWAGGER_UI_DOC_EXPANSION = 'none'
 
 # API Metadata
-API_TITLE = 'MAX Inception ResNet v2'
+API_TITLE = 'MAX Image Classifier - Inception ResNet v2'
 API_DESC = 'Identify objects in images using a third-generation deep residual network.'
 API_VERSION = '1.1.0'
 
