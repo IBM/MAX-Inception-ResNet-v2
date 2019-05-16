@@ -4,7 +4,7 @@
 
 Model files are from the [Keras built-in applications](https://keras.io/applications/#inceptionresnetv2), where they are available under a [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
 
-_Note_ the model files are hosted on [IBM Cloud Object Storage](http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/keras/inception_resnet_v2.h5).
+_Note_ the model files are hosted on [IBM Cloud Object Storage](http://max-assets.s3.us.cloud-object-storage.appdomain.cloud/keras/inception_resnet_v2.h5).
 
 ## Images
 
