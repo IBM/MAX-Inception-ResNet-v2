@@ -8,11 +8,11 @@ services:
 install:
   - docker build -t max-inception-resnet-v2 .
   - docker run -it -d -p 5000:5000 max-inception-resnet-v2
-  - sleep 60
+  - pip install pytest requests flake8 Pillow
 
 before_script:
-  - pip install pytest requests flake8 Pillow
   - flake8 . --max-line-length=127
+  - sleep 60
 
 script:
   - pytest tests/test.py
