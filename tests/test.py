@@ -15,7 +15,7 @@ def test_swagger():
     json = r.json()
     assert 'swagger' in json
     assert json.get('info') and json.get('info').get('title') == 'MAX Image Classifier - Inception ResNet v2'
-    assert json.get('info') and json.get('info').get('version') == '1.1.0'
+    assert json.get('info') and json.get('info').get('version') == '1.2.0'
     assert json.get('info') and json.get('info').get('description') == 'Identify objects in images using a ' \
                                                                        'third-generation deep residual network.'
 
@@ -48,7 +48,7 @@ def test_predict():
 
     formats = ['JPEG', 'PNG']
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path = 'assets/cat.jpg'
+    file_path = 'samples//cat.jpg'
     jpg = Image.open(file_path)
 
     for f in formats:
@@ -66,7 +66,7 @@ def test_predict():
 def test_invalid_input():
 
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path = 'assets/README.md'
+    file_path = 'samples//README.md'
 
     with open(file_path, 'rb') as file:
         file_form = {'image': (file_path, file, 'image/jpeg')}
