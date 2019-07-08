@@ -64,7 +64,7 @@ def test_predict():
 
     formats = ['JPEG', 'PNG']
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path = 'samples//cat.jpg'
+    file_path = 'samples/cat.jpg'
     jpg = Image.open(file_path)
 
     for f in formats:
@@ -82,7 +82,7 @@ def test_predict():
 def test_invalid_input():
 
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path = 'samples//README.md'
+    file_path = 'samples/README.md'
 
     with open(file_path, 'rb') as file:
         file_form = {'image': (file_path, file, 'image/jpeg')}
