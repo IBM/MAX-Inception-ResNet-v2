@@ -1,10 +1,12 @@
 [![Build Status](https://travis-ci.org/IBM/MAX-Inception-ResNet-v2.svg?branch=master)](https://travis-ci.org/IBM/MAX-Inception-ResNet-v2) [![Website Status](https://img.shields.io/website/http/max-inception-resnet-v2.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-inception-resnet-v2.max.us-south.containers.appdomain.cloud/)
 
+[<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
+
 # IBM Code Model Asset Exchange: Inception-ResNet-v2 Image Classifier
 
 This repository contains code to instantiate and deploy an image classification model. This model recognizes the 1000 different classes of objects in the [ImageNet 2012 Large Scale Visual Recognition Challenge](http://www.image-net.org/challenges/LSVRC/2012/). The model consists of a deep convolutional net using the Inception-ResNet-v2 architecture that was trained on the ImageNet-2012 data set. The input to the model is a 299x299 image, and the output is a list of estimated class probabilities.
 
-The model is based on the [Keras built-in model for Inception-ResNet-v2](https://keras.io/applications/#inceptionresnetv2). The model files are hosted on [IBM Cloud Object Storage](http://max-assets.s3.us.cloud-object-storage.appdomain.cloud/keras/inception_resnet_v2.h5). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Code Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/).
+The model is based on the [Keras built-in model for Inception-ResNet-v2](https://keras.io/applications/#inceptionresnetv2). The model files are hosted on [IBM Cloud Object Storage](https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-inception-resnet-v2/1.0/assets.tar.gz). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Code Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM).
 
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
@@ -23,7 +25,7 @@ The model is based on the [Keras built-in model for Inception-ResNet-v2](https:/
 | This repository | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [LICENSE](LICENSE) |
 | Model Weights | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [Keras Inception-ResNet-v2](https://keras.io/applications/#inceptionresnetv2)|
 | Model Code (3rd party) | [MIT](https://opensource.org/licenses/MIT) | [Keras LICENSE](https://github.com/keras-team/keras/blob/master/LICENSE)|
-| Test assets | Various | [Asset README](assets/README.md) |
+| Test assets | Various | [Samples README](samples/README.md) |
 
 ## Pre-requisites:
 
@@ -58,6 +60,8 @@ $ kubectl apply -f https://raw.githubusercontent.com/IBM/MAX-Inception-ResNet-v2
 ```
 
 The model will be available internally at port `5000`, but can also be accessed externally through the `NodePort`.
+
+A more elaborate tutorial on how to deploy this MAX model to production on [IBM Cloud](https://ibm.biz/Bdz2XM) can be found [here](http://ibm.biz/max-to-ibm-cloud-tutorial).
 
 ## Run Locally
 
@@ -102,14 +106,14 @@ $ docker run -it -p 5000:5000 max-inception-resnet-v2
 
 The API server automatically generates an interactive Swagger documentation page. Go to `http://localhost:5000` to load it. From there you can explore the API and also create test requests.
 
-Use the `model/predict` endpoint to load a test image (you can use one of the test images from the `assets` folder) and get predicted labels for the image from the API.
+Use the `model/predict` endpoint to load a test image (you can use one of the test images from the `samples` folder) and get predicted labels for the image from the API.
 
 ![Swagger Doc Screenshot](docs/swagger-screenshot.png)
 
 You can also test it on the command line, for example:
 
 ```
-$ curl -F "image=@assets/dog.jpg" -X POST http://localhost:5000/model/predict
+$ curl -F "image=@samples/dog.jpg" -X POST http://localhost:5000/model/predict
 ```
 
 You should see a JSON response like that below:

@@ -1,3 +1,19 @@
+#
+# Copyright 2018-2019 IBM Corp. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 import pytest
 import requests
 from PIL import Image
@@ -15,7 +31,7 @@ def test_swagger():
     json = r.json()
     assert 'swagger' in json
     assert json.get('info') and json.get('info').get('title') == 'MAX Image Classifier - Inception ResNet v2'
-    assert json.get('info') and json.get('info').get('version') == '1.1.0'
+    assert json.get('info') and json.get('info').get('version') == '1.2.0'
     assert json.get('info') and json.get('info').get('description') == 'Identify objects in images using a ' \
                                                                        'third-generation deep residual network.'
 
@@ -48,7 +64,7 @@ def test_predict():
 
     formats = ['JPEG', 'PNG']
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path = 'assets/cat.jpg'
+    file_path = 'samples/cat.jpg'
     jpg = Image.open(file_path)
 
     for f in formats:
@@ -66,7 +82,7 @@ def test_predict():
 def test_invalid_input():
 
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path = 'assets/README.md'
+    file_path = 'samples/README.md'
 
     with open(file_path, 'rb') as file:
         file_form = {'image': (file_path, file, 'image/jpeg')}
