@@ -45,5 +45,6 @@ MODEL_META_DATA = {
     'name': '{} Keras Model'.format(MODEL_NAME),
     'description': '{} Keras model trained on ImageNet'.format(MODEL_NAME),
     'type': 'image_classification',
-    'license': '{}'.format(MODEL_LICENSE)
+    'license': '{}'.format(MODEL_LICENSE),
+    'source': 'https://developer.ibm.com/exchanges/models/all/max-inception-resnet-v2/'
 }
