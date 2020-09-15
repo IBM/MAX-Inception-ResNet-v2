@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
       - name: max-inception-resnet-v2
-        image: codait/max-inception-resnet-v2:latest
+        image: quay.io/codait/max-inception-resnet-v2:latest
         ports:
         - containerPort: 5000
