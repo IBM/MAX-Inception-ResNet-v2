@@ -1,4 +1,4 @@
-numpy==1.17.5
+numpy==1.22.0
 tensorflow==1.15.4
 Pillow==8.2.0
 h5py==2.9.0
